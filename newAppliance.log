@@ -1,0 +1,106 @@
+
+--- Job newAppliance.gms Start 12/04/19 12:37:38 24.1.2 r40979 WEX-WEI x86_64/MS Windows
+GAMS 24.1.2   Copyright (C) 1987-2013 GAMS Development. All rights reserved
+Licensee: Gary Goldstein                                 G010614:2121CA-WIN
+          Decision Ware, Inc.                                        DC2807
+--- Starting compilation
+--- newAppliance.gms(87) 3 Mb
+--- GDXin=C:\Users\Paul\Documents\gamsdir\projdir\in.gdx
+--- newAppliance.gms(401) 3 Mb
+--- Starting execution: elapsed 0:00:00.086
+--- newAppliance.gms(287) 4 Mb
+--- Generating MIP model vpp
+--- newAppliance.gms(290) 4 Mb
+---   1,678 rows  1,830 columns  4,322 non-zeroes
+---   147 discrete-columns
+--- Executing CPLEX: elapsed 0:00:00.164
+
+IBM ILOG CPLEX   24.1.2 r40979 Released Jun 16, 2013 WEI x86_64/MS Windows    
+--- GAMS/Cplex licensed for continuous and discrete problems.
+Cplex 12.5.1.0
+
+Reading data...
+Starting Cplex...
+Tried aggregator 3 times.
+MIP Presolve eliminated 1052 rows and 928 columns.
+MIP Presolve modified 55 coefficients.
+Aggregator did 277 substitutions.
+Reduced MIP has 349 rows, 625 columns, and 1340 nonzeros.
+Reduced MIP has 95 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (3.33 ticks)
+Found incumbent of value 8.999692 after 0.03 sec. (4.62 ticks)
+Probing fixed 0 vars, tightened 24 bounds.
+Probing time = 0.00 sec. (0.09 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 1 rows and 1 columns.
+MIP Presolve modified 3 coefficients.
+Aggregator did 1 substitutions.
+Reduced MIP has 347 rows, 623 columns, and 1330 nonzeros.
+Reduced MIP has 95 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.88 ticks)
+Probing time = 0.00 sec. (0.09 ticks)
+Clique table members: 1.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Tried aggregator 1 time.
+Aggregator did 92 substitutions.
+Reduced LP has 255 rows, 531 columns, and 1146 nonzeros.
+Presolve time = 0.05 sec. (0.34 ticks)
+Initializing dual steep norms . . .
+
+Iteration log . . .
+Iteration:     1   Dual objective     =            -0.377135
+Iteration:    82   Dual objective     =             7.567204
+Initializing dual steep norms . . .
+Root relaxation solution time = 0.05 sec. (1.43 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                            8.9997       -2.0404      130  122.67%
+Found incumbent of value 8.999692 after 0.08 sec. (7.53 ticks)
+      0     0        7.6549     9        8.9997        7.6549      130   14.94%
+*     0+    0                            7.6733        7.6549      130    0.24%
+Found incumbent of value 7.673251 after 0.08 sec. (8.10 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.08 sec. (8.18 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.08 sec. (8.18 ticks)
+MIP status(102): integer optimal, tolerance
+Cplex Time: 0.11sec (det. 8.18 ticks)
+Fixing integer variables, and solving final LP...
+Tried aggregator 1 time.
+LP Presolve eliminated 1203 rows and 1093 columns.
+Aggregator did 322 substitutions.
+Reduced LP has 153 rows, 415 columns, and 717 nonzeros.
+Presolve time = 0.00 sec. (0.99 ticks)
+Initializing dual steep norms . . .
+
+Iteration log . . .
+Iteration:     1   Dual infeasibility =             1.297500
+Iteration:    90   Dual infeasibility =             0.074084
+Iteration:    98   Dual objective     =             6.648706
+Iteration:   168   Dual objective     =             7.561162
+Fixed MIP status(1): optimal
+Cplex Time: 0.00sec (det. 2.36 ticks)
+
+Solution satisfies tolerances.
+
+MIP Solution:            7.673251    (130 iterations, 0 nodes)
+Final Solve:             7.673251    (234 iterations)
+
+Best possible:           7.654902
+Absolute gap:            0.018349
+Relative gap:            0.002391
+
+--- Restarting execution
+--- newAppliance.gms(290) 2 Mb
+--- Reading solution for model vpp
+--- Executing after solve: elapsed 0:00:00.625
+--- newAppliance.gms(350) 3 Mb
+*** Status: Normal completion
+--- Job newAppliance.gms Stop 12/04/19 12:37:39 elapsed 0:00:00.645

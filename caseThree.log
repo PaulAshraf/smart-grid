@@ -1,0 +1,112 @@
+
+--- Job caseThree.gms Start 02/28/20 13:21:27 24.1.2 r40979 WEX-WEI x86_64/MS Windows
+GAMS 24.1.2   Copyright (C) 1987-2013 GAMS Development. All rights reserved
+Licensee: Gary Goldstein                                 G010614:2121CA-WIN
+          Decision Ware, Inc.                                        DC2807
+--- Starting compilation
+--- caseThree.gms(87) 3 Mb
+--- GDXin=C:\Users\Paul\Documents\gamsdir\projdir\in.gdx
+--- caseThree.gms(407) 3 Mb
+--- Starting execution: elapsed 0:00:00.010
+--- caseThree.gms(293) 4 Mb
+--- Generating MIP model vpp
+--- caseThree.gms(296) 4 Mb
+---   1,678 rows  1,830 columns  4,322 non-zeroes
+---   147 discrete-columns
+--- Executing CPLEX: elapsed 0:00:00.056
+
+IBM ILOG CPLEX   24.1.2 r40979 Released Jun 16, 2013 WEI x86_64/MS Windows    
+--- GAMS/Cplex licensed for continuous and discrete problems.
+Cplex 12.5.1.0
+
+Reading data...
+Starting Cplex...
+Tried aggregator 2 times.
+MIP Presolve eliminated 1336 rows and 1337 columns.
+MIP Presolve modified 28 coefficients.
+Aggregator did 53 substitutions.
+Reduced MIP has 289 rows, 440 columns, and 907 nonzeros.
+Reduced MIP has 95 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (2.17 ticks)
+Found incumbent of value 9.188959 after 0.02 sec. (3.19 ticks)
+Probing fixed 0 vars, tightened 21 bounds.
+Probing time = 0.00 sec. (0.06 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 95 rows and 140 columns.
+MIP Presolve modified 4 coefficients.
+Aggregator did 2 substitutions.
+Reduced MIP has 192 rows, 298 columns, and 617 nonzeros.
+Reduced MIP has 64 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.58 ticks)
+Probing time = 0.00 sec. (0.04 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 192 rows, 298 columns, and 617 nonzeros.
+Reduced MIP has 64 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.08 sec. (0.36 ticks)
+Probing time = 0.00 sec. (0.04 ticks)
+Clique table members: 1.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Tried aggregator 1 time.
+Aggregator did 61 substitutions.
+Reduced LP has 131 rows, 237 columns, and 495 nonzeros.
+Presolve time = 0.00 sec. (0.17 ticks)
+Initializing dual steep norms . . .
+
+Iteration log . . .
+Iteration:     1   Dual infeasibility =             0.058499
+Iteration:     7   Dual objective     =             2.967527
+Initializing dual steep norms . . .
+Root relaxation solution time = 0.00 sec. (0.63 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                            7.7575        0.0562       65   99.28%
+Found incumbent of value 7.757520 after 0.09 sec. (8.06 ticks)
+      0     0        7.6630     6        7.7575        7.6630       65    1.22%
+
+Root node processing (before b&c):
+  Real time             =    0.11 sec. (8.13 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.11 sec. (8.13 ticks)
+MIP status(102): integer optimal, tolerance
+Cplex Time: 0.11sec (det. 8.14 ticks)
+Fixing integer variables, and solving final LP...
+Tried aggregator 1 time.
+LP Presolve eliminated 1428 rows and 1516 columns.
+Aggregator did 208 substitutions.
+Reduced LP has 42 rows, 106 columns, and 154 nonzeros.
+Presolve time = 0.00 sec. (0.83 ticks)
+Initializing dual steep norms . . .
+
+Iteration log . . .
+Iteration:     1   Dual infeasibility =             0.595498
+Iteration:    19   Dual objective     =             7.350866
+Fixed MIP status(1): optimal
+Cplex Time: 0.00sec (det. 1.55 ticks)
+
+Solution satisfies tolerances.
+
+MIP Solution:            7.757520    (65 iterations, 0 nodes)
+Final Solve:             7.741020    (43 iterations)
+
+Best possible:           7.662988
+Absolute gap:            0.094532
+Relative gap:            0.012186
+
+--- Restarting execution
+--- caseThree.gms(296) 2 Mb
+--- Reading solution for model vpp
+--- Executing after solve: elapsed 0:00:00.338
+--- caseThree.gms(382) 3 Mb
+
+GDXXRW           24.1.2 r40979 Released Jun 16, 2013 VS8 x86/MS Windows       
+Input file : C:\Users\Paul\Documents\gamsdir\projdir\results.gdx
+Output file: C:\Users\Paul\Documents\gamsdir\projdir\results.xlsx
+Total time = 765 Ms
+*** Status: Normal completion
+--- Job caseThree.gms Stop 02/28/20 13:21:29 elapsed 0:00:01.234

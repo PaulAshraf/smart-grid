@@ -1,0 +1,46 @@
+--- Job output.gms Start 12/04/19 17:06:18 28.2.0 r750fa45 WEX-WEI x86 64bit/MS Windows
+--- GAMS Parameters defined
+    Input C:\Users\Paul\Documents\gamsdir\projdir\output.gms
+    PageSize 0
+    ScrDir C:\Users\Paul\Documents\gamsdir\projdir\225c\
+    SysDir C:\GAMS\win64\28.2\
+    LogOption 3
+    ErrMsg 1
+    ErrorLog 99
+    IDE 1
+    LstTitleLeftAligned 1
+GAMS 28.2.0   Copyright (C) 1987-2019 GAMS Development. All rights reserved
+*** License with infinite maintenance not supported.
+*** Contact support@gams.com for details.
+*** System downgraded to demonstration mode
+***
+*** Contact your distributor or GAMS Development Corp
+*** 202-342-0180, -0181 fax, support@gams.com
+*** GAMS Base Module 28.2.0 r750fa45 Released Aug 19, 2019 WEI x86 64bit/MS Window
+***
+*** GAMS Release     : 28.2.0 r750fa45 WEX-WEI x86 64bit/MS Windows
+*** Release Date     : Released Aug 19, 2019
+*** To use this release, you must have a valid license file for
+*** this platform with maintenance expiration date later than
+*** Aug  2, 2019
+*** System Directory : C:\GAMS\win64\28.2\
+***
+*** License          : C:\GAMS\win64\28.2\gamslice.txt
+*** Gary Goldstein                                 G010614:2121CA-WIN
+*** Decision Ware, Inc.                                              
+*** DC2807  01BDMCCOCPM5GEMPO2PTSNXAXP                  0000000000000
+***
+*** The installed license cannot be validated.
+    Hint: Maybe the license file got corrupted. It might help to reinstall
+          the original, unmodified license you got from GAMS or your distributor.
+--- Starting compilation
+--- output.gms(29) 2 Mb
+--- Starting execution: elapsed 0:00:00.007
+--- output.gms(1) 3 Mb
+
+GDXXRW           28.2.0 r750fa45 Released Aug 19, 2019 VS8 x86 32bit/MS Window
+Input file : C:\Users\Paul\Documents\gamsdir\projdir\caseThree.gdx
+Output file: C:\Users\Paul\Documents\gamsdir\projdir\caseThree.xlsx
+Total time = 2171 Ms
+*** Status: Normal completion
+--- Job output.gms Stop 12/04/19 17:06:20 elapsed 0:00:02.330

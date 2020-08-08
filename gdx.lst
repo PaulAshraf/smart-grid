@@ -1,0 +1,31 @@
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 WEX-WEI x86 64bit/MS Windows - 11/21/19 12:41:01 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+  37   
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 WEX-WEI x86 64bit/MS Windows - 11/21/19 12:41:01 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Include File Summary
+
+
+   SEQ   GLOBAL TYPE      PARENT   LOCAL  FILENAME
+
+     1        1 INPUT          0       0  C:\Users\Paul\Documents\gamsdir\projdir\gdx.gms
+     2       38 CALL           1      38  GDXXRW input.xlsx o=in.gdx @results.txt
+
+
+COMPILATION TIME     =        1.391 SECONDS      2 MB  28.2.0 r750fa45 WEX-WEI
+
+
+EXECUTION TIME       =        0.000 SECONDS      2 MB  28.2.0 r750fa45 WEX-WEI
+
+
+USER: GAMS Development Corporation, USA              G871201/0000CA-ANY
+      Free Demo, +1 202-342-0180, support@gams.com, www.gams.com DC0000
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\Paul\Documents\gamsdir\projdir\gdx.gms
+Output     C:\Users\Paul\Documents\gamsdir\projdir\gdx.lst

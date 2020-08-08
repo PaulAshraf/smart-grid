@@ -1,0 +1,104 @@
+
+--- Job caseTwo.gms Start 12/04/19 13:14:28 24.1.2 r40979 WEX-WEI x86_64/MS Windows
+GAMS 24.1.2   Copyright (C) 1987-2013 GAMS Development. All rights reserved
+Licensee: Gary Goldstein                                 G010614:2121CA-WIN
+          Decision Ware, Inc.                                        DC2807
+--- Starting compilation
+--- caseTwo.gms(87) 3 Mb
+--- GDXin=C:\Users\Paul\Documents\gamsdir\projdir\in.gdx
+--- caseTwo.gms(401) 3 Mb
+--- Starting execution: elapsed 0:00:00.012
+--- caseTwo.gms(287) 4 Mb
+--- Generating MIP model vpp
+--- caseTwo.gms(290) 4 Mb
+---   1,678 rows  1,830 columns  4,322 non-zeroes
+---   147 discrete-columns
+--- Executing CPLEX: elapsed 0:00:00.059
+
+IBM ILOG CPLEX   24.1.2 r40979 Released Jun 16, 2013 WEI x86_64/MS Windows    
+--- GAMS/Cplex licensed for continuous and discrete problems.
+Cplex 12.5.1.0
+
+Reading data...
+Starting Cplex...
+Tried aggregator 3 times.
+MIP Presolve eliminated 1248 rows and 1210 columns.
+MIP Presolve modified 30 coefficients.
+Aggregator did 118 substitutions.
+Reduced MIP has 312 rows, 502 columns, and 1068 nonzeros.
+Reduced MIP has 95 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (2.88 ticks)
+Found incumbent of value 10.639355 after 0.00 sec. (4.03 ticks)
+Probing fixed 0 vars, tightened 23 bounds.
+Probing time = 0.00 sec. (0.07 ticks)
+Tried aggregator 2 times.
+MIP Presolve modified 4 coefficients.
+Aggregator did 2 substitutions.
+Reduced MIP has 310 rows, 500 columns, and 1064 nonzeros.
+Reduced MIP has 95 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (0.74 ticks)
+Probing time = 0.00 sec. (0.07 ticks)
+Clique table members: 1.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Tried aggregator 1 time.
+Aggregator did 92 substitutions.
+Reduced LP has 218 rows, 408 columns, and 878 nonzeros.
+Presolve time = 0.00 sec. (0.28 ticks)
+Initializing dual steep norms . . .
+
+Iteration log . . .
+Iteration:     1   Dual objective     =             2.288156
+Iteration:    80   Dual objective     =             9.160750
+Initializing dual steep norms . . .
+Root relaxation solution time = 0.00 sec. (1.06 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                           10.6394       -0.5925       88  105.57%
+Found incumbent of value 10.639355 after 0.02 sec. (6.32 ticks)
+      0     0        9.1659     9       10.6394        9.1659       88   13.85%
+*     0+    0                            9.1842        9.1659       88    0.20%
+Found incumbent of value 9.184213 after 0.03 sec. (6.83 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.03 sec. (6.90 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.03 sec. (6.90 ticks)
+MIP status(102): integer optimal, tolerance
+Cplex Time: 0.03sec (det. 6.90 ticks)
+Fixing integer variables, and solving final LP...
+Tried aggregator 1 time.
+LP Presolve eliminated 1379 rows and 1324 columns.
+Aggregator did 184 substitutions.
+Reduced LP has 115 rows, 322 columns, and 540 nonzeros.
+Presolve time = 0.00 sec. (0.90 ticks)
+Initializing dual steep norms . . .
+
+Iteration log . . .
+Iteration:     1   Dual infeasibility =             1.080000
+Iteration:    56   Dual objective     =             6.282303
+Iteration:   117   Dual objective     =             9.181806
+Fixed MIP status(1): optimal
+Cplex Time: 0.00sec (det. 1.99 ticks)
+
+Solution satisfies tolerances.
+
+MIP Solution:            9.184213    (88 iterations, 0 nodes)
+Final Solve:             9.184213    (146 iterations)
+
+Best possible:           9.165863
+Absolute gap:            0.018349
+Relative gap:            0.001998
+
+--- Restarting execution
+--- caseTwo.gms(290) 2 Mb
+--- Reading solution for model vpp
+--- Executing after solve: elapsed 0:00:00.309
+--- caseTwo.gms(350) 3 Mb
+*** Status: Normal completion
+--- Job caseTwo.gms Stop 12/04/19 13:14:28 elapsed 0:00:00.326

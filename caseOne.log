@@ -1,0 +1,189 @@
+
+--- Job caseOne.gms Start 02/28/20 13:05:54 24.1.2 r40979 WEX-WEI x86_64/MS Windows
+GAMS 24.1.2   Copyright (C) 1987-2013 GAMS Development. All rights reserved
+Licensee: Gary Goldstein                                 G010614:2121CA-WIN
+          Decision Ware, Inc.                                        DC2807
+--- Starting compilation
+--- caseOne.gms(87) 3 Mb
+--- GDXin=C:\Users\Paul\Documents\gamsdir\projdir\in.gdx
+--- caseOne.gms(93) 3 Mb 1 Error
+*** Error 140 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Unknown symbol
+--- caseOne.gms(94) 3 Mb 2 Errors
+*** Error 140 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Unknown symbol
+--- caseOne.gms(108) 3 Mb 3 Errors
+*** Error 140 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Unknown symbol
+--- caseOne.gms(111) 3 Mb 4 Errors
+*** Error 140 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Unknown symbol
+--- caseOne.gms(112) 3 Mb 5 Errors
+*** Error 140 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Unknown symbol
+--- caseOne.gms(113) 3 Mb 6 Errors
+*** Error 140 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Unknown symbol
+--- caseOne.gms(114) 3 Mb 7 Errors
+*** Error 140 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Unknown symbol
+--- caseOne.gms(115) 3 Mb 8 Errors
+*** Error 140 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Unknown symbol
+--- caseOne.gms(116) 3 Mb 9 Errors
+*** Error 140 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Unknown symbol
+--- caseOne.gms(290) 3 Mb 10 Errors
+*** Error 257 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Solve statement not checked because of previous errors
+--- caseOne.gms(292) 3 Mb 11 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(293) 3 Mb 12 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(294) 3 Mb 13 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(295) 3 Mb 14 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(296) 3 Mb 15 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(297) 3 Mb 16 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(298) 3 Mb 17 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(299) 3 Mb 18 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(300) 3 Mb 19 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(301) 3 Mb 20 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(302) 3 Mb 21 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(303) 3 Mb 22 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(304) 3 Mb 23 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(305) 3 Mb 24 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(306) 3 Mb 25 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(307) 3 Mb 26 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(308) 3 Mb 27 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(309) 3 Mb 28 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(310) 3 Mb 29 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(311) 3 Mb 30 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(312) 3 Mb 31 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(314) 3 Mb 32 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(315) 3 Mb 33 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(316) 3 Mb 34 Errors
+*** Error 141 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Symbol neither initialized nor assigned
+       A wild shot: You may have spurious commas in the explanatory
+       text of a declaration. Check symbol reference list.
+--- caseOne.gms(323) 3 Mb 35 Errors
+*** Error 140 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Unknown symbol
+--- caseOne.gms(324) 3 Mb 36 Errors
+*** Error 140 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Unknown symbol
+--- caseOne.gms(338) 3 Mb 37 Errors
+*** Error 140 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Unknown symbol
+--- caseOne.gms(341) 3 Mb 38 Errors
+*** Error 140 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Unknown symbol
+--- caseOne.gms(342) 3 Mb 39 Errors
+*** Error 140 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Unknown symbol
+--- caseOne.gms(343) 3 Mb 40 Errors
+*** Error 140 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Unknown symbol
+--- caseOne.gms(344) 3 Mb 41 Errors
+*** Error 140 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Unknown symbol
+--- caseOne.gms(345) 3 Mb 42 Errors
+*** Error 140 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Unknown symbol
+--- caseOne.gms(346) 3 Mb 43 Errors
+*** Error 140 in C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+    Unknown symbol
+--- caseOne.gms(401) 3 Mb 43 Errors
+*** Status: Compilation error(s)
+--- Job caseOne.gms Stop 02/28/20 13:05:54 elapsed 0:00:00.297
+Exit code = 2

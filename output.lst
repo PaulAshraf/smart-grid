@@ -1,0 +1,53 @@
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 WEX-WEI x86 64bit/MS Windows - 12/04/19 17:06:18 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  execute 'gdxxrw.exe caseThree.gdx squeeze=n var=cost.l rng=cost!'
+   2  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_total_input.l rng=power_total_input!'
+   3  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_total_output.l rng=power_total_output!'
+   4  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_charge_ess.l rng=power_charge_ess!'
+   5  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_discharge_ess.l rng=power_discharge_ess!'
+   6  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_used_ess.l rng=power_used_ess!'
+   7  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_used_ess.l rng=power_used_ess!'
+   8  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_used_ess.l rng=power_used_ess!'
+   9  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_used_ess.l rng=power_used_ess!'
+  10  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_charge_ev.l rng=power_charge_ev!'
+  11  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_discharge_ev.l rng=power_discharge_ev!'
+  12  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_used_ev.l rng=power_used_ev!'
+  13  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_used_pv.l rng=power_used_pv!'
+  14  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_sold_ess.l rng=power_sold_ess!'
+  15  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_sold_ev.l rng=power_sold_ev!'
+  16  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_sold_pv.l rng=power_sold_pv!'
+  17  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=soc_ess.l rng=soc_ess!'
+  18  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=soc_ev.l rng=soc_ev!'
+  19  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_used_appliance.l rng=power_used_appliance!'
+  20  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_exchange.l rng=power_exchange!'
+  21  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_grid_input.l rng=power_grid_input!'
+  22  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_grid_output.l rng=power_grid_output!'
+  23  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=x2.l rng=x2!'
+  24  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=x3.l rng=x3!'
+  25  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=v.l rng=v!'
+  26  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_used_wind.l rng=power_used_wind!'
+  27  *execute 'gdxxrw.exe caseThree.gdx squeeze=n var=power_sold_wind.l rng=power_sold_wind!'
+  28   
+  29   
+
+
+COMPILATION TIME     =        0.000 SECONDS      2 MB  28.2.0 r750fa45 WEX-WEI
+GAMS 28.2.0  r750fa45 Released Aug 19, 2019 WEX-WEI x86 64bit/MS Windows - 12/04/19 17:06:18 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+EXECUTION TIME       =        2.282 SECONDS      3 MB  28.2.0 r750fa45 WEX-WEI
+
+
+USER: GAMS Development Corporation, USA              G871201/0000CA-ANY
+      Free Demo, +1 202-342-0180, support@gams.com, www.gams.com DC0000
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\Paul\Documents\gamsdir\projdir\output.gms
+Output     C:\Users\Paul\Documents\gamsdir\projdir\output.lst

@@ -1,0 +1,537 @@
+GAMS 24.1.2  r40979 Released Jun 16, 2013 WEX-WEI x86_64/MS Windows 02/28/20 13:05:54 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  sets
+   2  t timeslots /1*24/
+   3  s scenarios /1*3/
+   4  w prosumers /1*3/
+   5  c controllable_appliances /hvac,wm,dw/
+   6  f phases /beginning,ongoing,finishing/
+   7  ;
+   8   
+   9  alias(w,ww)
+  10   
+  47   
+  48  *$CALL GDXXRW input.xlsx o=in.gdx @results.txt
+  49   
+  50  Parameters
+  51  charging_effecinecy_ess(w)         charging efficiency of the ESS of prosu
+      mer w
+  52  charging_effecinecy_ev(w)          charging efficiency of the EV of prosum
+      er w
+  53  discharging_effecinecy_ess(w)      discharging efficiency of the ESS of pr
+      osumer w
+  54  discharging_effecinecy_ev(w)       discharging efficiency of the EV of pro
+      sumer w
+  55  inflexible(t,w)                    inflexible load of household h in perio
+      d t
+  56  *number_operated(w,c)               number of times the controllable appli
+      ance c of prosumer w must be operated during the optimization horizon
+  57  *power_consumption_appliance(f,c,w) power consumed by controllable applian
+      ce c of prosumer w while in phase f .
+  58  power_produced_pv(t,w)             available power of the PV system of hou
+      sehold w in period t
+  59  *power_produced_ev(t,w)             available power of the wind turbines s
+      ystem of household w in period t
+  60  power_produced_wind(t,w)           available power of the wind turbines sy
+      stem of household w in period t
+  61  charging_rate_ess(w)               charging rate of the ESS of prosumer w
+  62  charging_rate_ev(w)                charging rate of the EV of prosumer w
+  63  discharging_rate_ess(w)            discharging rate of the ESS of prosumer
+       w
+  64  discharging_rate_ev(w)             discharging rate of the EV of prosumer 
+      w
+  65  soc_ini_ess(w)                     initial SOE of the ESS of prosumer w
+  66  soc_max_ess(w)                     maximum SOE of the ESS of prosumer w
+  67  soc_min_ess(w)                     minimum SOE of the ESS of prosumer w
+  68  soc_ini_ev(w)                      initial SOE of the EV of prosumer w
+  69  soc_max_ev(w)                      maximum SOE of the EV of prosumer w
+  70  soc_min_ev(w)                      minimum SOE of the EV of prosumer w
+  71  arrival(w)                         arrival period of the EV of prosumer w
+  72  departure(w)                       departure period of the EV of prosumer 
+      w
+  73  *duration_appliance(f,c,w)          duration of phase f of controllable ap
+      pliance c of prosumer w [number of T-hour periods]
+  74  buy_price(t)                       "price at which energy is bought "
+  75  sell_price(t)                      "price at which energy is sold "
+  76  *temp_outside(t,w)                  outside tempreture of w during period 
+      t
+  77  *temp_max(w)                        maximum prefereed tempreture for w
+  78  *temp_min(w)                        minmum prefereed tempreture for w
+  79  *resistance(w)                      resistance of the air of w
+  80  *capacity(w)                        thermal capacity of the air of w
+  81  *cop(w)                             coofeciant of perfromance for w
+  82  power_appliance(t,s,w,c)           power consumed by controllable applianc
+      e c of prosumer w while in period t in scenario s
+  83  line_limits(w,ww)                  the limit of the transfer between prosu
+      mer w and ww
+  84  line_loses(w,ww)                   the loses of the transfer between prosu
+      mer w and ww
+  85  ;
+  86   
+GDXIN   C:\Users\Paul\Documents\gamsdir\projdir\in.gdx
+--- LOAD  charging_effecinecy_ess = 1:charging_effecinecy_ess
+--- LOAD  charging_effecinecy_ev = 2:charging_effecinecy_ev
+--- LOAD  discharging_effecinecy_ess = 3:discharging_effecinecy_ess
+--- LOAD  discharging_effecinecy_ev = 4:discharging_effecinecy_ev
+--- LOAD  inflexible = 5:inflexible
+  93  $load number_operated
+****                      $140
+  94  $load power_consumption_appliance
+****                                  $140
+--- LOAD  power_produced_pv = 8:power_produced_pv
+--- LOAD  power_produced_wind = 32:power_produced_wind
+--- LOAD  charging_rate_ess = 9:charging_rate_ess
+--- LOAD  charging_rate_ev = 10:charging_rate_ev
+--- LOAD  discharging_rate_ess = 11:discharging_rate_ess
+--- LOAD  discharging_rate_ev = 12:discharging_rate_ev
+--- LOAD  soc_ini_ess = 13:soc_ini_ess
+--- LOAD  soc_max_ess = 14:soc_max_ess
+--- LOAD  soc_min_ess = 15:soc_min_ess
+--- LOAD  soc_ini_ev = 17:soc_ini_ev
+--- LOAD  soc_max_ev = 16:soc_max_ev
+--- LOAD  soc_min_ev = 18:soc_min_ev
+--- LOAD  arrival = 19:arrival
+--- LOAD  departure = 20:departure
+ 108  $load duration_appliance
+****                         $140
+--- LOAD  buy_price = 22:buy_price
+--- LOAD  sell_price = 23:sell_price
+ 111  $load temp_outside
+****                   $140
+ 112  $load temp_max
+****               $140
+ 113  $load temp_min
+****               $140
+ 114  $load resistance
+****                 $140
+ 115  $load capacity
+****               $140
+ 116  $load cop
+****          $140
+--- LOAD  power_appliance = 31:power_appliance
+--- LOAD  line_limits = 33:line_limits
+--- LOAD  line_loses = 34:line_loses
+ 120   
+ 121   
+ 122  scalar time_interval /1/ ;
+ 123  scalar N /3/ ;
+ 124   
+ 125   
+ 126  positive variables
+ 127  power_sold_pv(w,t)          portion of the PV discharging power of prosume
+      r w injected to PCC in period t
+ 128  power_used_pv(w,t)          portion of the PV power of prosumer w used to 
+      satisfy self-consumption in period t
+ 129  power_sold_wind(w,t)        portion of the PV discharging power of prosume
+      r w injected to PCC in period t
+ 130  power_used_wind(w,t)        portion of the PV power of prosumer w used to 
+      satisfy self-consumption in period t
+ 131  power_total_input(w,t)      total power procured by prosumer w in period t
+ 132  power_total_output(w,t)     total power injected to grid prosumer w in per
+      iod t
+ 133  power_charge_ess(w,t)       charging power of ESS of prosumer w in period 
+      t
+ 134  power_discharge_ess(w,t)    discharging power of ESS of prosumer w in peri
+      od t
+ 135  power_used_ess(w,t)         portion of the ESS discharging power of prosum
+      er w used to satisfy self-consumption in period t
+ 136  power_sold_ess(w,t)         portion of the ESS discharging power of prosum
+      er w injected to PCC in period t
+ 137  soc_ess(w,t)                SOC of ESS of prosumer w in period t
+ 138  power_charge_ev(w,t)        charging power of EV of prosumer w in period t
+ 139  power_discharge_ev(w,t)     charging power of EV of prosumer w in period t
+ 140  power_used_ev(w,t)          portion of the EV discharging power of prosume
+      r w used to satisfy self-consumption in period t
+ 141  power_sold_ev(w,t)          portion of the EV discharging power of prosume
+      r w injected to PCC in period t
+ 142  soc_ev(w,t)                 SOC of EV of prosumer w in period t
+ 143  power_used_appliance(w,t,c) power consumed by controllable appliance c of 
+      prosumer w while in period t
+ 144  power_grid_input(w,t)       power bought from the grid if everything is in
+      suffecient
+ 145  power_grid_output(w,t)      power sold to the grid if there is no need for
+       it
+ 146  power_exchange(w,ww,t)      power exchanged from prosumer ww to prosumer w
+       at time t
+ 147  ;
+ 148   
+ 149   
+ 150  Binary Variables
+ 151  x2(w,t)          "binary variable. 1 if the power flows from grid to prosu
+      mers/if EV is charging (w = {1, 2, 3}) for prosumer w in period t; else 0.
+      "
+ 152  x3(w,t)          "binary variable. 1 if the power flows from grid to prosu
+      mers/ if ESS is charging (w = {1, 2, 3}) for prosumer w in period t; else 
+      0."
+ 153  v(s)             "binary variables. 1 if the scenario is the optimal scena
+      rio to operate; else 0"
+ 154  ;
+ 155   
+ 156  variable cost total cost for the procumer;
+ 157   
+ 158  equations
+ 159  *** objective function ***
+ 160  objective_function
+ 161  *** balance in each prosumer ***
+ 162  balance(w,t)
+ 163  *** power bought and sold ***
+ 164  power1(w,t)
+ 165  *** electric vehicles ***
+ 166  ev1(w,t)
+ 167  ev2(w,t)
+ 168  ev3(w,t)
+ 169  ev4(w,t)
+ 170  ev5(w,t)
+ 171  ev6_upper(w,t)
+ 172  ev6_lower(w,t)
+ 173  ev7(w,t)
+ 174  ev8(w,t)
+ 175  ev9(w,t)
+ 176  *** energy storgae system ***
+ 177  ess1(w,t)
+ 178  ess2(w,t)
+ 179  ess3(w,t)
+ 180  ess4(w,t)
+ 181  ess5(w,t)
+ 182  ess6_upper(w,t)
+ 183  ess6_lower(w,t)
+ 184  ess7(w,t)
+ 185  *** pv production ***
+ 186  pv(w,t)
+ 187  *** wind production ***
+ 188  wind(w,t)
+ 189  *** new appliances formulation ***
+ 190  new_appliance_1(t,w,c)
+ 191  new_appliance_2
+ 192  *** grid ***
+ 193  grid1(w,t)
+ 194  grid2(w,ww,t)
+ 195  grid3(ww,t)
+ 196  *grid4(w,ww,t)
+ 197  *grid5(w,ww,t)
+ 198  ;
+ 199   
+ 200   
+ 201  *** objective function ***
+ 202   
+ 203  * objective_function .. cost =e= sum((w,t),((buy_price(t)*power_total_inpu
+      t(w,t)*time_interval)-(sell_price(t)*power_total_output(w,t)*time_interval
+      )));
+ 204   
+ 205  objective_function .. cost =e= sum((w,t),((buy_price(t)*power_grid_input(w
+      ,t)*time_interval)-(sell_price(t)*power_grid_output(w,t)*time_interval)));
+ 206   
+ 207   
+ 208  *** balance in each prosumer ***
+ 209   
+ 210  balance(w,t) .. power_total_input(w,t) + power_used_pv(w,t) +  power_used_
+      ess(w,t) + power_used_ev(w,t) + power_used_wind(w,t)  =e= inflexible(t,w) 
+      +  power_charge_ess(w,t) + power_charge_ev(w,t) + sum((c),power_used_appli
+      ance(w,t,c));
+ 211   
+ 212  *** power bought and sold ***
+ 213   
+ 214  power1(w,t) .. power_total_output(w,t) =e= power_sold_pv(w,t) + power_sold
+      _ess(w,t) + power_sold_ev(w,t) + power_sold_wind(w,t);
+ 215   
+ 216  *** electric vehicles ***
+ 217   
+ 218  ev1(w,t) .. power_used_ev(w,t) + power_sold_ev(w,t) =e= discharging_effeci
+      necy_ev(w) * power_discharge_ev(w,t);
+ 219   
+ 220  ev2(w,t) .. power_charge_ev(w,t) =l= charging_rate_ev(w) * x2(w,t);
+ 221   
+ 222  ev3(w,t) .. power_discharge_ev(w,t) =l= discharging_rate_ev(w) * (1 - x2(w
+      ,t));
+ 223   
+ 224  ev4(w,t)$(ord(t)=arrival(w)) .. soc_ev(w,t) =e= soc_ini_ev(w);
+ 225   
+ 226  **+ charging_effecinecy_ev(w) * power_charge_ev(w,t) * time_interval - pow
+      er_discharge_ev(w,t) * time_interval * discharging_effecinecy_ev(w);
+ 227   
+ 228  ev5(w,t)$(ord(t)>arrival(w) and ord(t)<=departure(w)) .. soc_ev(w,t) =e= s
+      oc_ev(w,t-1) + charging_effecinecy_ev(w) * power_charge_ev(w,t) - power_di
+      scharge_ev(w,t) * discharging_effecinecy_ev(w);
+ 229   
+ 230  ev8(w,t)$(ord(t)<arrival(w) or ord(t)>departure(w)) .. power_charge_ev(w,t
+      ) =e= 0;
+ 231   
+ 232  ev9(w,t)$(ord(t)<arrival(w) or ord(t)>departure(w)) .. power_discharge_ev(
+      w,t) =e= 0;
+ 233   
+ 234  ev6_upper(w,t)$(ord(t)>arrival(w) and ord(t)<departure(w)) .. soc_ev(w,t) 
+      =l= soc_max_ev(w);
+ 235   
+ 236  ev6_lower(w,t)$(ord(t)>arrival(w) and ord(t)<departure(w)) .. soc_ev(w,t) 
+      =g= soc_min_ev(w);
+ 237   
+ 238  ev7(w,t)$(ord(t)=departure(w)) .. soc_ev(w,t) =e= soc_max_ev(w);
+ 239   
+ 240  *** energy storgae system ***
+ 241   
+ 242  ess1(w,t) .. power_used_ess(w,t) + power_sold_ess(w,t) =e= discharging_eff
+      ecinecy_ess(w) * power_discharge_ess(w,t);
+ 243   
+ 244  ess2(w,t) .. power_charge_ess(w,t) =l= charging_rate_ess(w) * x3(w,t);
+ 245   
+ 246  ess3(w,t) .. power_discharge_ess(w,t) =l= discharging_rate_ess(w) * (1 - x
+      3(w,t));
+ 247   
+ 248  ess4(w,t)$(ord(t)>1) .. soc_ess(w,t) =e= soc_ess(w,t-1) + charging_effecin
+      ecy_ess(w) * power_charge_ess(w,t) * time_interval - power_discharge_ess(w
+      ,t) * time_interval;
+ 249   
+ 250  ess5(w,t)$(ord(t)=1) .. soc_ess(w,t) =e= soc_ini_ess(w);
+ 251   
+ 252  ess6_upper(w,t) .. soc_ess(w,t) =l= soc_max_ess(w);
+ 253   
+ 254  ess6_lower(w,t) .. soc_ess(w,t) =g= soc_min_ess(w);
+ 255   
+ 256  ess7(w,t)$(ord(t)=24) .. soc_ess(w,t) =e= soc_ini_ess(w);
+ 257   
+ 258  *** pv production ***
+ 259   
+ 260  pv(w,t) .. power_used_pv(w,t) + power_sold_pv(w,t) =e= power_produced_pv(t
+      ,w);
+ 261   
+ 262  *** wind production ***
+ 263   
+ 264  wind(w,t) .. power_used_wind(w,t) + power_sold_wind(w,t) =e= power_produce
+      d_wind(t,w);
+ 265   
+ 266  *** new appliances formulation ***
+ 267   
+ 268  new_appliance_1(t,w,c) .. power_used_appliance(w,t,c) =e= sum((s),v(s)*pow
+      er_appliance(t,s,w,c));
+ 269   
+ 270  new_appliance_2 .. sum((s),v(s)) =e= 1;
+ 271   
+ 272  *** grid ***
+ 273   
+ 274  grid1(w,t) .. power_total_input(w,t) =e= sum((ww),power_exchange(w,ww,t) *
+       line_loses(w,ww)) + power_grid_input(w,t);
+ 275   
+ 276  grid2(w,ww,t) .. power_exchange(w,ww,t) =l= line_limits(w,ww);
+ 277   
+ 278  grid3(ww,t) .. power_total_output(ww,t) =e= sum((w),power_exchange(w,ww,t)
+       * line_loses(w,ww)) + power_grid_output(ww,t);
+ 279   
+ 280  *grid4(w,ww,t)$(ord(w)=ord(ww)) .. power_exchange(w,ww,t) =e= 0;
+ 281   
+ 282  *grid5(w,ww,t) .. power_exchange(w,ww,t) =e= -1 * power_exchange(ww,w,t);
+ 283   
+ 284  model vpp /ALL/
+ 285   
+ 286  *option minlp=SCIP;
+ 287  option mip=CPLEX;
+ 288  *option Limrow=500;
+ 289   
+ 290  SOLVE vpp USING mip  MINIMIZING cost;
+****                                      $257
+ 291   
+ 292  display cost.l;
+****               $141
+ 293  display power_total_input.l;
+****                            $141
+ 294  display power_total_output.l;
+****                             $141
+ 295  display power_charge_ess.l;
+****                           $141
+ 296  display power_discharge_ess.l;
+****                              $141
+ 297  display power_used_ess.l;
+****                         $141
+ 298  display power_charge_ev.l;
+****                          $141
+ 299  display power_discharge_ev.l;
+****                             $141
+ 300  display power_used_ev.l;
+****                        $141
+ 301  display power_used_pv.l;
+****                        $141
+ 302  display power_sold_ess.l;
+****                         $141
+ 303  display power_sold_ev.l;
+****                        $141
+ 304  display power_sold_pv.l;
+****                        $141
+ 305  display soc_ess.l;
+****                  $141
+ 306  display soc_ev.l;
+****                 $141
+ 307  display power_used_appliance.l;
+****                               $141
+ 308  display power_exchange.l;
+****                         $141
+ 309  display power_grid_input.l;
+****                           $141
+ 310  display power_grid_output.l;
+****                            $141
+ 311  display power_used_wind.l;
+****                          $141
+ 312  display power_sold_wind.l;
+****                          $141
+ 313   
+ 314  display x2.l;
+****             $141
+ 315  display x3.l;
+****             $141
+ 316  display v.l;
+****            $141
+ 317   
+ 318  display charging_effecinecy_ess;
+ 319  display charging_effecinecy_ev;
+ 320  display discharging_effecinecy_ess;
+ 321  display discharging_effecinecy_ev;
+ 322  display inflexible;
+ 323  display number_operated;
+****                        $140
+ 324  display power_consumption_appliance;
+****                                    $140
+ 325  display power_produced_pv;
+ 326  display charging_rate_ess;
+ 327  display charging_rate_ev;
+ 328  display discharging_rate_ess;
+ 329  display discharging_rate_ev;
+ 330  display soc_ini_ess;
+ 331  display soc_max_ess;
+ 332  display soc_min_ess;
+ 333  display soc_ini_ev;
+ 334  display soc_max_ev;
+ 335  display soc_min_ev;
+ 336  display arrival;
+ 337  display departure;
+ 338  display duration_appliance;
+****                           $140
+ 339  display buy_price;
+ 340  display sell_price;
+ 341  display temp_outside;
+****                     $140
+ 342  display temp_max;
+****                 $140
+ 343  display temp_min;
+****                 $140
+ 344  display resistance;
+****                   $140
+ 345  display capacity;
+****                 $140
+ 346  display cop;
+****            $140
+ 347  display power_appliance;
+ 348  display line_limits;
+ 349   
+ 350  execute_unload "caseOne.gdx"
+ 351  cost.l
+ 352  power_total_input.l
+ 353  power_total_output.l
+ 354  power_charge_ess.l
+ 355  power_discharge_ess.l
+ 356  power_used_ess.l
+ 357  power_charge_ev.l
+ 358  power_discharge_ev.l
+ 359  power_used_ev.l
+ 360  power_used_pv.l
+ 361  power_sold_ess.l
+ 362  power_sold_ev.l
+ 363  power_sold_pv.l
+ 364  power_used_wind.l
+ 365  power_sold_wind.l
+ 366  soc_ess.l
+ 367  soc_ev.l
+ 368  power_used_appliance.l
+ 369  power_exchange.l
+ 370  power_grid_input.l
+ 371  power_grid_output.l
+ 372  x2.l
+ 373  x3.l
+ 374  v.l
+ 375   
+ 376  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=cost.l rng=cos
+      t!'
+ 377  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=power_total_in
+      put.l cDim=0 rDim=0 rng=power_total_input!'
+ 378  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=power_total_ou
+      tput.l rng=power_total_output!'
+ 379  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=power_charge_e
+      ss.l rng=power_charge_ess!'
+ 380  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=power_discharg
+      e_ess.l rng=power_discharge_ess!'
+ 381  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=power_used_ess
+      .l rng=power_used_ess!'
+ 382  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=power_used_ess
+      .l rng=power_used_ess!'
+ 383  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=power_used_ess
+      .l rng=power_used_ess!'
+ 384  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=power_used_ess
+      .l rng=power_used_ess!'
+ 385  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=power_charge_e
+      v.l rng=power_charge_ev!'
+ 386  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=power_discharg
+      e_ev.l rng=power_discharge_ev!'
+ 387  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=power_used_ev.
+      l rng=power_used_ev!'
+ 388  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=power_used_pv.
+      l rng=power_used_pv!'
+ 389  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=power_sold_ess
+      .l rng=power_sold_ess!'
+ 390  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=power_sold_ev.
+      l rng=power_sold_ev!'
+ 391  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=power_sold_pv.
+      l rng=power_sold_pv!'
+ 392  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=soc_ess.l rng=
+      soc_ess!'
+ 393  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=soc_ev.l rng=s
+      oc_ev!'
+ 394  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=power_used_app
+      liance.l rng=power_used_appliance!'
+ 395  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=power_exchange
+      .l rng=power_exchange!'
+ 396  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=power_grid_inp
+      ut.l rng=power_grid_input!'
+ 397  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=power_grid_out
+      put.l rng=power_grid_output!'
+ 398  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=x2.l rng=x2!'
+ 399  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=x3.l rng=x3!'
+ 400  * execute 'gdxxrw.exe results.gdx squeeze=n intAsText=n var=v.l rng=v!'
+ 401   
+GAMS 24.1.2  r40979 Released Jun 16, 2013 WEX-WEI x86_64/MS Windows 02/28/20 13:05:54 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Error Messages
+
+
+140  Unknown symbol
+141  Symbol neither initialized nor assigned
+        A wild shot: You may have spurious commas in the explanatory
+        text of a declaration. Check symbol reference list.
+257  Solve statement not checked because of previous errors
+
+**** 43 ERROR(S)   0 WARNING(S)
+GAMS 24.1.2  r40979 Released Jun 16, 2013 WEX-WEI x86_64/MS Windows 02/28/20 13:05:54 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Include File Summary
+
+
+   SEQ   GLOBAL TYPE      PARENT   LOCAL  FILENAME
+
+     1        1 INPUT          0       0  C:\Users\Paul\Documents\gamsdir\projdi
+                                          r\caseOne.gms
+     2       87 GDXIN          1      87  C:\Users\Paul\Documents\gamsdir\projdi
+                                          r\in.gdx
+
+
+COMPILATION TIME     =        0.187 SECONDS      3 MB  24.1.2 r40979 WEX-WEI
+
+
+USER: Gary Goldstein                                 G010614:2121CA-WIN
+      Decision Ware, Inc.                                        DC2807
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\Paul\Documents\gamsdir\projdir\caseOne.gms
+Output     C:\Users\Paul\Documents\gamsdir\projdir\caseOne.lst
+
+**** USER ERROR(S) ENCOUNTERED
